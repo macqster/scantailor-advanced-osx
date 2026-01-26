@@ -1,7 +1,8 @@
 # scantailor-advanced-osx
 Homebrew formula and App bundler for Scantailor (Advanced). Now uses Qt6 framework.
 
-> [!WARNING] No more App bundles
+> [!WARNING] 
+> No more App bundles
 > To run homemade .app bundles you need to pay 99€/year to Apple which I do not want to pay.
 
 See [4lex4/scantailor-advanced](https://github.com/4lex4/scantailor-advanced) for the original project.
