@@ -8,14 +8,14 @@
 
 ## Install from the command-line
 
-For the latest release :
+For the latest release:
 ```
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/yb85/scantailor-advanced-osx/HEAD/install.sh)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/macqster/scantailor-advanced-osx/HEAD/install.sh)"
 ```
 
-To install the `HEAD` (bleeding edge) run instead :
+To install the `HEAD` (bleeding edge), run instead:
 
 ```
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/yb85/scantailor-advanced-osx/HEAD/install.sh)" install --HEAD
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/macqster/scantailor-advanced-osx/HEAD/install.sh)" install --HEAD
 
 ```

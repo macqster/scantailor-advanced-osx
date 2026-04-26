@@ -1,6 +1,10 @@
 # scantailor-advanced-osx
 Homebrew formula and App bundler for Scantailor (Advanced). Now uses Qt6 framework.
 
+Canonical local workspace:
+
+- `~/_git/scantailor`
+
 > [!WARNING] 
 > No more App bundles !
 >
@@ -9,12 +13,12 @@ Homebrew formula and App bundler for Scantailor (Advanced). Now uses Qt6 framewo
 See [4lex4/scantailor-advanced](https://github.com/4lex4/scantailor-advanced) for the original project.
 The original project seems to be abandoned, this formula now fetches from the community project [ScanTailor-Advanced/scantailor-advanced](https://github.com/ScanTailor-Advanced/scantailor-advanced)
 
-This install you first need the `brew` package manager : [https://brew.sh/](https://brew.sh/).
+You first need the `brew` package manager: [https://brew.sh/](https://brew.sh/).
 
-Then open your terminal and run :
+Then open your terminal in the local checkout and run:
 
 ```
-brew install yb85/homebrew-tap/scantailor-advanced
+brew install --formula ./scantailor.rb
 
 # TO RUN IT
 scantailor
@@ -24,7 +28,7 @@ scantailor &
 
 ```
 
-If the installation succeeds you will see something like this :
+If the installation succeeds you will see something like this:
 
 ```
 ==> Downloading https://formulae.brew.sh/api/formula.jws.json
@@ -71,16 +75,16 @@ Hide these hints with `HOMEBREW_NO_ENV_HINTS=1` (see `man brew`).
 
 All automated, execute in your terminal :
 ```
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/yb85/scantailor-advanced-osx/HEAD/install.sh)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/macqster/scantailor-advanced-osx/HEAD/install.sh)"
 ```
 
-This script tries to install `brew` and `git` if missing. It may ask you to install the command-line developper tools.
-If both these utilities are present, it clones this repository and install the homebrew formula.
+This script tries to install `brew` and `git` if missing. It may ask you to install the command-line developer tools.
+If both utilities are present, it uses the local checkout at `~/_git/scantailor` when available, otherwise it clones this repository fork and installs the Homebrew formula.
 
-To install the `HEAD` and not the latest release run
+To install `HEAD` and not the latest release, run:
 
 ```
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/yb85/scantailor-advanced-osx/HEAD/install.sh)" install --HEAD
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/macqster/scantailor-advanced-osx/HEAD/install.sh)" install --HEAD
 
 ```
 
@@ -89,11 +93,11 @@ To install the `HEAD` and not the latest release run
 
 1. clone the repository
 ```
-git clone "https://github.com/yb85/scantailor-advanced-osx.git"
-cd ./scantailor-advanced-osx
+git clone "https://github.com/macqster/scantailor-advanced-osx.git" ~/_git/scantailor
+cd ~/_git/scantailor
 ```
 
-2. with [homebrew](https://brew.sh) installed and updated, run :
+2. with [homebrew](https://brew.sh) installed and updated, run:
 
 ```
 brew install --formula ./scantailor.rb
@@ -112,7 +116,7 @@ brew install --formula --HEAD ./scantailor.rb
 To use the bundler, you need the fish shell (`brew install fish`) and the utility macdeployqt to do the linking (installed with qt6). 
 
 1. make sure that QT is correctly linked : `brew link --force qt6`
-2. add the QT bin folder to your fish path : `echo 'set -g fish_user_paths "/usr/local/opt/qt/bin" $fish_user_paths' >> ~/.config/fish/config.fish`
-3. Simply run `bundler/scantailor_bundler.command` (you may have to `chmod 755 bundler/scantailor_bundler.command`)
+2. add the QT bin folder to your fish path: `echo 'set -g fish_user_paths (brew --prefix qt)/bin $fish_user_paths' >> ~/.config/fish/config.fish`
+3. Simply run `bundler/scantailor_bundler.command` (you may have to `chmod 755 bundler/scantailor_bundler.command`).
 
 The bundler script will use the scantailor binary which is in your shell path (the value printed out by `which scantailor`).

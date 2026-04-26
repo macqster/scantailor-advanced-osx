@@ -17,7 +17,7 @@ for exe in (find "$APP" -type f)
 	if lipo -info "$exe" 1> /dev/null 2> /dev/null
 		cblue;echo "INFO — Checking \"$exe\" …";cred
 		#use tail to remove the first two lines which show the file itself and its loaded path
-		otool -L "$exe" | tail -n +3 | grep --color=never -E "^\s*/usr/local";cyellow
+		otool -L "$exe" | tail -n +3 | grep --color=never -E "^\s*/(usr/local|opt/homebrew)";cyellow
 		otool -L "$exe" | tail -n +3 | grep --color=never -E "^\s*(/usr/lib|/usr/bin|/[^u])";cgreen
 		otool -L "$exe" | tail -n +3 | grep  --color=never -E "^\s*@executable_path";creset
 	else 
